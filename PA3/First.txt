@@ -1,0 +1,18 @@
+mysql> delimiter //
+mysql> CREATE FUNCTION multiply(a INT, b INT)
+    -> RETURNS INT
+    -> DETERMINISTIC
+    -> BEGIN
+    -> DECLARE c INT;
+    -> SET c=a*b;
+    -> RETURN c;
+    -> END
+    -> //
+Query OK, 0 rows affected (0.10 sec)
+mysql> select multiply(2,3);
++---------------+
+| multiply(2,3) |
++---------------+
+|             6 |
++---------------+
+1 row in set (0.06 sec)
